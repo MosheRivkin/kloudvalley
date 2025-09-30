@@ -1,0 +1,73 @@
+{
+	"name": "kloudvalley",
+	"description": "A ts wrapper and Zod-validator for Cloudflare KV.",
+	"version": "0.1.0",
+	"keywords": [
+		"cloudflare",
+		"kv",
+		"zod",
+		"typesafe",
+		"validation",
+		"worker",
+		"serverless"
+	],
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"module": "./dist/index.js",
+	"main": "./dist/index.cjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
+		},
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"build": "bunup",
+		"dev": "bunup --watch",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format .",
+		"format:fix": "biome format --write .",
+		"tsc": "tsc --noEmit",
+		"test": "bun test",
+		"test:watch": "bun test --watch",
+		"test:coverage": "bun test --coverage",
+		"release": "bumpp --commit --push --tag"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.2.4",
+		"@cloudflare/workers-types": "^4.20250927.0",
+		"@types/bun": "^1.2.23",
+		"bumpp": "^10.2.3",
+		"bunup": "^0.14.9",
+		"typescript": "^5.9.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mosherivkin/kloudvalley.git"
+	},
+	"peerDependencies": {
+		"typescript": ">=4.5.0",
+		"zod": "^4.1.11"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"homepage": "https://github.com/mosherivkin/kloudvalley#readme",
+	"bugs": {
+		"url": "https://github.com/mosherivkin/kloudvalley/issues"
+	},
+	"license": "MIT"
+}
