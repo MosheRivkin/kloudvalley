@@ -37,6 +37,7 @@ npm install kloudvalley zod
 bun add kloudvalley zod
 ```
 
+
 ## Usage
 
 First, define your Zod schema and create a `KloudValley` instance.
@@ -99,6 +100,13 @@ const allValues = await kv.getAll();
 // Delete a settings key
 await kv.delete('shippingRates');
 ```
+___
+
+### Side Note 
+
+KloudValley is optimized for unstructured or key-specific data like application settings, feature flags, or preferences where each key has a distinct schema.
+It's not designed for homogeneous data collections where all values follow the same pattern and where the there are no specific keys that needed controlled access (e.g., URL shorteners, session stores, or cache entries). For such cases, a simpler KV implementation with a single validation schema would be more appropriate.
+
 
 ## Contributing 🤝
 
